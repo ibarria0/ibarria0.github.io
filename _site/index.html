@@ -44,23 +44,54 @@
 	    <div class='col-sm-9'>
 	        
 		<div class="page-header">
-		          <h1><a href="/jekyll/update/2014/03/03/welcome-to-jekyll.html">Welcome to Jekyll!</a></h1>
+		          <h1><a href="/ubuntu/rails/postgresql/rvm/2014/03/03/ubuntu-13-ruby-on-rails-install.html">Ruby on Rails con postgresql en Ubuntu 13.10</a></h1>
 		</div>
 		  <div class='row'>
 		      <div class='col-sm-12'>
-		          <p><p>You&#39;ll find this post in your <code>_posts</code> directory - edit this post and re-build (or run with the <code>-w</code> switch) to see your changes!
-To add new posts, simply add a file in the <code>_posts</code> directory that follows the convention: YYYY-MM-DD-name-of-post.ext.</p>
+		          <p><p>Ruby on Rails es de las herramientas más populares y más para desarrollar una aplicacion web.
+En el siguiente tutorial instalaremos rvm, ruby, rails y postgresql.</p>
 
-<p>Jekyll also offers powerful support for code snippets:</p>
+<p>Comenzamos por instalar curl. Esto es necesario para instalar RVM.</p>
 
-<div class="highlight"><pre><code class="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">&quot;Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">)</span>
-<span class="c1">#=&gt; prints &#39;Hi, Tom&#39; to STDOUT.</span>
+<div class="highlight"><pre><code class="bash">sudo apt-get install curl -y
 </code></pre></div>
 
-<p>Check out the <a href="http://jekyllrb.com">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/mojombo/jekyll">Jekyll&#39;s GitHub repo</a>.</p>
+<p>Luego instalamos RVM con ruby</p>
+
+<div class="highlight"><pre><code class="bash">curl -sSL https://get.rvm.io <span class="p">|</span> bash -s stable --ruby
+<span class="nb">echo</span> <span class="s1">&#39;source ~/.rvm/scripts/rvm&#39;</span> &gt;&gt; ~/.bashrc
+<span class="nb">source</span> ~/.bashrc
+</code></pre></div>
+
+<p>Rails...</p>
+
+<div class="highlight"><pre><code class="bash">gem install rails
+</code></pre></div>
+
+<p>Postgresql es un poco más complicado.
+Nos vamos a basar en <a href="https://help.ubuntu.com/community/PostgreSQL#Alternative_Server_Setup">este guide de ubuntu</a>.</p>
+
+<p>Primero instalamos los paquetes.</p>
+
+<div class="highlight"><pre><code class="bash">sudo apt-get install postgresql postgresql-contrib
+</code></pre></div>
+
+<p>Luego hacemos a nuestro usuario un SUPERUSER y creamos una DB con el nombre de nuestro usuario.
+Esto se hace para que cuando uses el comando psql puedas entrar sin tener que especificar una base de datos.</p>
+
+<div class="highlight"><pre><code class="bash">sudo -u postgres createuser --superuser <span class="nv">$USER</span>
+sudo -u postgres createdb <span class="nv">$USER</span>
+</code></pre></div>
+
+<p>Para crear bases de datos nuevas solo tenemos que correr el comando </p>
+
+<div class="highlight"><pre><code class="bash"> psql 
+</code></pre></div>
+
+<p>Y luego crear dar el comando para crear una base de datos nueva</p>
+
+<div class="highlight"><pre><code class="bash">  create database panadatadb<span class="p">;</span> 
+</code></pre></div>
 </p>
 	              </div>
 	          </div>
@@ -71,7 +102,7 @@ To add new posts, simply add a file in the <code>_posts</code> directory that fo
 		<ul>
 		  
 		    <li>
-		      <a href="/jekyll/update/2014/03/03/welcome-to-jekyll.html">Welcome to Jekyll!</a>
+		      <a href="/ubuntu/rails/postgresql/rvm/2014/03/03/ubuntu-13-ruby-on-rails-install.html">Ruby on Rails con postgresql en Ubuntu 13.10</a>
 		    </li>
 		  
 		</ul>
