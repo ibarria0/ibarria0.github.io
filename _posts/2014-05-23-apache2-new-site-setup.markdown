@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Como agregar un sitio nuevo a apache2"
-date:   2014-03-03 17:30:00
+date:   2014-05-23 02:30:00
 categories: ubuntu mysql apache2 new site
 ---
 
